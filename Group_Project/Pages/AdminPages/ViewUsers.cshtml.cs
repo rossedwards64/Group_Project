@@ -16,8 +16,8 @@ namespace Group_Project.Pages.AdminPages
         [BindProperty]
         public List<User> User { get; set; }
 
-        public List<string> URole { get; set; } = new List<string> { "User", "Admin" };
-        public string UserName;
+        public List<string> UserRole { get; set; } = new List<string> { "User", "Admin" };
+        public string Username;
         public const string SessionKeyName1 = "username";
 
 
@@ -29,7 +29,7 @@ namespace Group_Project.Pages.AdminPages
         public IActionResult OnGet()
         {
             //get the session first!
-            UserName = HttpContext.Session.GetString(SessionKeyName1);
+            Username = HttpContext.Session.GetString(SessionKeyName1);
             FirstName = HttpContext.Session.GetString(SessionKeyName2);
             SessionID = HttpContext.Session.GetString(SessionKeyName3);
 
@@ -51,9 +51,9 @@ namespace Group_Project.Pages.AdminPages
                 while (reader.Read())
                 {
                     User Row = new User(); //each record found from the table
-                    Row.Id = reader.GetInt32(0);
+                    Row.UserID = reader.GetInt32(0);
                     Row.FirstName = reader.GetString(1);
-                    Row.UserName = reader.GetString(2);
+                    Row.Username = reader.GetString(2);
                     Row.Role = reader.GetString(4); // We dont get the password. The role field is in the 5th position
                     User.Add(Row);
                 }

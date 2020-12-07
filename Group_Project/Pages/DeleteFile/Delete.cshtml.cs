@@ -18,7 +18,7 @@ namespace Group_Project.Pages.DeleteFile
       
 
         [BindProperty]
-        public User StdFileRec { get; set; }
+        public User FileRec { get; set; }
 
         public readonly IWebHostEnvironment _env;
 
@@ -43,15 +43,15 @@ namespace Group_Project.Pages.DeleteFile
 
                 var reader = command.ExecuteReader();
 
-                StdFileRec = new User();
+                FileRec = new User();
                 while (reader.Read())
                 {
-                    StdFileRec.Id = reader.GetInt32(0);
-                    StdFileRec.UserName = reader.GetString(1); //to display on the html page
-                    StdFileRec.FileName = reader.GetString(2); //to display on the html page
+                    FileRec.FileID = reader.GetInt32(0);
+                    FileRec.Username = reader.GetString(1); //to display on the html page
+                    FileRec.FileName = reader.GetString(2); //to display on the html page
                 }
 
-                Console.WriteLine("File name : "+StdFileRec.FileName);
+                Console.WriteLine("File name : "+ FileRec.FileName);
 
 
             }
@@ -63,7 +63,7 @@ namespace Group_Project.Pages.DeleteFile
         public IActionResult OnPost()
         {
 
-            deletePicture(StdFileRec.Id, StdFileRec.FileName);
+            deletePicture(FileRec.UserID, FileRec.FileName);
             return RedirectToPage("/ViewFile/View");
         }
 
@@ -75,8 +75,8 @@ namespace Group_Project.Pages.DeleteFile
             Console.WriteLine("File Name : "+FileName);
 
             DatabaseConnect dbstring = new DatabaseConnect();
-            string DbConnection = dbstring.DatabaseString();
-            SqlConnection conn = new SqlConnection(DbConnection);
+            string DatabaseString = dbstring.DatabaseString();
+            SqlConnection conn = new SqlConnection(DatabaseString);
             conn.Open();
 
             using (SqlCommand command = new SqlCommand())

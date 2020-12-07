@@ -16,10 +16,10 @@ namespace Group_Project.Pages.UploadFile
     public class UploadFileModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
-        public IFormFile StdFile { get; set; }
+        public IFormFile Files { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public User StudFileRec { get; set; }
+        public User FileRec { get; set; }
 
         public readonly IWebHostEnvironment _env;
         
@@ -37,14 +37,14 @@ namespace Group_Project.Pages.UploadFile
         public IActionResult OnPost()
         {
            
-            var FileToUpload = Path.Combine(_env.WebRootPath, "Files", StdFile.FileName);//this variable consists of file path
+            var FileToUpload = Path.Combine(_env.WebRootPath, "Files", Files.FileName);//this variable consists of file path
             Console.WriteLine("File Name : " + FileToUpload);
             
 
 
             using (var FStream = new FileStream(FileToUpload, FileMode.Create))
             {
-                 StdFile.CopyTo(FStream);//copy the file into FStream variable
+                 Files.CopyTo(FStream);//copy the file into FStream variable
             }
 
             DatabaseConnect dbstring = new DatabaseConnect();
@@ -56,10 +56,10 @@ namespace Group_Project.Pages.UploadFile
             {
                 command.Connection = conn;
                 command.CommandText = @"INSERT StudentFile (StudentName, FileName) VALUES (@StdName, @FName)";
-                command.Parameters.AddWithValue("@StdName", StudFileRec.UserName);
-                command.Parameters.AddWithValue("@FName", StdFile.FileName);
-                Console.WriteLine("File name : " + StudFileRec.UserName);
-                Console.WriteLine("File name : "+ StdFile.FileName);
+                command.Parameters.AddWithValue("@StdName", FileRec.Username);
+                command.Parameters.AddWithValue("@FName", Files.FileName);
+                Console.WriteLine("File name : " + FileRec.Username);
+                Console.WriteLine("File name : "+ Files.FileName);
                 command.ExecuteNonQuery();
             }
 

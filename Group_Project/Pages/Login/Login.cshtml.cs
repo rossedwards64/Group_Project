@@ -32,13 +32,13 @@ namespace Group_Project.Pages.Login
             }
 
 
-            DatabaseConnect Dbstring = new DatabaseConnect(); //creating an object from the class
-            string DatabaseString = Dbstring.DatabaseString(); //calling the method from the class
+            DatabaseConnect dbstring = new DatabaseConnect(); //creating an object from the class
+            string DatabaseString = dbstring.DatabaseString(); //calling the method from the class
             Console.WriteLine(DatabaseString);
             SqlConnection conn = new SqlConnection(DatabaseString);
             conn.Open();
 
-            Console.WriteLine(User.UserName);
+            Console.WriteLine(User.Username);
             Console.WriteLine(User.Password);
 
 
@@ -47,7 +47,7 @@ namespace Group_Project.Pages.Login
                 command.Connection = conn;
                 command.CommandText = @"SELECT FirstName, UserName, UserRole FROM UserTable WHERE UserName = @UName AND UserPassword = @Pwd";
 
-                command.Parameters.AddWithValue("@UName", User.UserName);
+                command.Parameters.AddWithValue("@UName", User.Username);
                 command.Parameters.AddWithValue("@Pwd", User.Password);
 
                 var reader = command.ExecuteReader();
@@ -55,7 +55,7 @@ namespace Group_Project.Pages.Login
                 while (reader.Read())
                 {
                     User.FirstName = reader.GetString(0);
-                    User.UserName = reader.GetString(1);
+                    User.Username = reader.GetString(1);
                     User.Role = reader.GetString(2);
                 }
 
@@ -66,7 +66,7 @@ namespace Group_Project.Pages.Login
             {
                 SessionID = HttpContext.Session.Id;
                 HttpContext.Session.SetString("sessionID", SessionID);
-                HttpContext.Session.SetString("username", User.UserName);
+                HttpContext.Session.SetString("username", User.Username);
                 HttpContext.Session.SetString("fname", User.FirstName);
                
                 if (User.Role=="User")

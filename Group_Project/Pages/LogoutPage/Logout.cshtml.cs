@@ -9,7 +9,7 @@ namespace Group_Project.Pages.LogoutPage
 {
     public class LogoutModel : PageModel
     {
-        /*
+        
         public string UserName;
         public const string SessionKeyName1 = "username";
 
@@ -18,7 +18,7 @@ namespace Group_Project.Pages.LogoutPage
 
         public string SessionID;
         public const string SessionKeyName3 = "sessionID";
-        */
+        
 
         public void OnGet()
         {

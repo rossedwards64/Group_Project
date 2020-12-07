@@ -8,24 +8,21 @@ namespace Group_Project.Models
 {
     public class User
     {
-        public int Id { get; set;}
+        public int UserID { get; set;}
 
        
-        [Display(Name ="First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [Display(Name = "User Name")]
-        public string UserName { get; set;}
+        [Display(Name ="Username")]
+        public string Username { get; set; }
 
         [Required]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Role")]
-        public string Role { get; set; }
-
         public string FileName { get; set; }
 
+        public string Role { get; set; }
+
+        public string FirstName { get; set; }
+        public int FileID { get; internal set; }
     }
 }
