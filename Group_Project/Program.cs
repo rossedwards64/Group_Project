@@ -11,7 +11,7 @@ namespace Group_Project
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args) //change
         {
             CreateHostBuilder(args).Build().Run();
         }
