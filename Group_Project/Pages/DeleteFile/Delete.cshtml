@@ -1,0 +1,28 @@
+﻿@page
+@model Group_Project.Pages.DeleteFile.DeleteModel
+@{
+}
+
+
+<h1>:: Delete Page ::</h1>
+
+<h3 style="color: red;">Are you sure want to delete the picture?</h3>
+
+<dl class="row">
+
+    <dt class="col-sm-2">
+        <img id="displayImg" src="~/Files/@Model.StdFileRec.FileName" alt="User Picture" style=" max-width:180px;" /><br>
+
+        Student Name : @Model.StdFileRec.UserName
+
+    </dt>
+</dl>
+
+<div>
+    <form method="post">
+        <input type="hidden" asp-for="StdFileRec.Id" /> <!--We need this as the hidden input for OnPost-->
+        <input type="hidden" asp-for="StdFileRec.FileName" /> <!--We need this as the hidden input for OnPost-->
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="/ViewFile/View">Back to List</a>
+    </form>
+</div>

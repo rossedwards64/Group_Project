@@ -25,5 +25,7 @@ namespace Group_Project.Models
         [Display(Name = "Role")]
         public string Role { get; set; }
 
+        public string FileName { get; set; }
+
     }
 }
