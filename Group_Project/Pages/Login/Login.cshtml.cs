@@ -14,7 +14,7 @@ namespace Group_Project.Pages.Login
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
         public string Message { get; set; }
 
         public string SessionID;
@@ -32,10 +32,10 @@ namespace Group_Project.Pages.Login
             }
 
 
-            DatabaseConnect dbstring = new DatabaseConnect(); //creating an object from the class
-            string DbConnection = dbstring.DatabaseString(); //calling the method from the class
-            Console.WriteLine(DbConnection);
-            SqlConnection conn = new SqlConnection(DbConnection);
+            DatabaseConnect Dbstring = new DatabaseConnect(); //creating an object from the class
+            string DatabaseString = Dbstring.DatabaseString(); //calling the method from the class
+            Console.WriteLine(DatabaseString);
+            SqlConnection conn = new SqlConnection(DatabaseString);
             conn.Open();
 
             Console.WriteLine(User.UserName);
