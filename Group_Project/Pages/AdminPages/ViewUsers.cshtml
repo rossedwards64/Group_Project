@@ -1,0 +1,36 @@
+﻿@page
+@model Group_Project.Pages.AdminPages.ViewUsersModel
+@{
+}
+
+<h1>:: View User ::</h1>
+<br />
+<h3>User : @Model.FirstName</h3>
+<br />
+
+<div>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>First Name</th>
+                <th>User Name</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+
+        @for (int i = 0; i < Model.User.Count; i++)
+        {
+            <tr>
+                <td>@Model.User[i].FirstName</td>
+                <td>@Model.User[i].UserName</td>
+                <td>@Model.User[i].Role</td>
+            </tr>
+        }
+
+
+    </table>
+</div>
+
+<div>
+    <a asp-page="/AdminPages/AdminIndex">Back to Main Admin</a>
+</div>
