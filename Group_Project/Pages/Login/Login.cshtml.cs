@@ -45,7 +45,7 @@ namespace Group_Project.Pages.Login
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"SELECT FirstName, UserName, UserRole FROM UserTable WHERE UserName = @UName AND UserPassword = @Pwd";
+                command.CommandText = @"SELECT FirstName, Username, Role FROM UserTable WHERE Username = @UName AND Password = @Pwd";
 
                 command.Parameters.AddWithValue("@UName", User.Username);
                 command.Parameters.AddWithValue("@Pwd", User.Password);

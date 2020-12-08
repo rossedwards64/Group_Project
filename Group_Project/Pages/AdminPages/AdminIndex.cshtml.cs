@@ -10,7 +10,7 @@ namespace Group_Project.Pages.AdminPages
 {
     public class AdminIndexModel : PageModel
     {
-        public string UserName;
+        public string Username;
         public const string SessionKeyName1 = "username";
 
 
@@ -23,11 +23,11 @@ namespace Group_Project.Pages.AdminPages
 
         public IActionResult OnGet()
         {
-            UserName = HttpContext.Session.GetString(SessionKeyName1);
+            Username = HttpContext.Session.GetString(SessionKeyName1);
             FirstName = HttpContext.Session.GetString(SessionKeyName2);
             SessionID = HttpContext.Session.GetString(SessionKeyName3);
 
-            if (string.IsNullOrEmpty(UserName) && string.IsNullOrEmpty(FirstName) && string.IsNullOrEmpty(SessionID))
+            if (string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(FirstName) && string.IsNullOrEmpty(SessionID))
             {
                 return RedirectToPage("/Login/Login");
             }
