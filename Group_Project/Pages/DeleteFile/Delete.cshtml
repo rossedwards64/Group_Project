@@ -21,7 +21,7 @@
 <div>
     <form method="post">
         <input type="hidden" asp-for="FileRec.UserID" /> <!--We need this as the hidden input for OnPost-->
-        <input type="hidden" asp-for="StdFileRec.FileName" /> <!--We need this as the hidden input for OnPost-->
+        <input type="hidden" asp-for="FileRec.FileName" /> <!--We need this as the hidden input for OnPost-->
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="/ViewFile/View">Back to List</a>
     </form>
