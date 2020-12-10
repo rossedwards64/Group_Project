@@ -1,0 +1,42 @@
+﻿@page
+@model Group_Project.Pages.AddUser.AddUserModel
+@{
+}
+
+<h1>:: Create User Page ::</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label"></label>
+                <input asp-for="User.FirstName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.Username" class="control-label"></label>
+                <input asp-for="User.Username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.Password" class="control-label"></label>
+                <input asp-for="User.Password" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.Role" class="control-label"></label>
+                @Html.DropDownListFor(model => model.User.Role, new SelectList(Model.URole), "Select Role", new { @class = "form-control", style = "width: 130px" })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success"/>
+            </div>
+
+
+        </form>
+    </div>
+
+
+
+</div>

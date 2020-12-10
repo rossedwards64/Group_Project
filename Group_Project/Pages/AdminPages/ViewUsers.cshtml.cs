@@ -14,7 +14,7 @@ namespace Group_Project.Pages.AdminPages
     public class ViewUsersModel : PageModel
     {
         [BindProperty]
-        public List<User> User { get; set; }
+        public new List<User> User { get; set; }
 
         public List<string> UserRole { get; set; } = new List<string> { "User", "Admin" };
         public string Username;

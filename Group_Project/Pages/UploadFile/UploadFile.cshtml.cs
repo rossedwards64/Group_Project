@@ -55,8 +55,8 @@ namespace Group_Project.Pages.UploadFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"INSERT StudentFile (StudentName, FileName) VALUES (@StdName, @FName)";
-                command.Parameters.AddWithValue("@StdName", FileRec.Username);
+                command.CommandText = @"INSERT UserTable (Username, FileName) VALUES (@UName, @FName)";
+                command.Parameters.AddWithValue("@UName", FileRec.Username);
                 command.Parameters.AddWithValue("@FName", Files.FileName);
                 Console.WriteLine("File name : " + FileRec.Username);
                 Console.WriteLine("File name : "+ Files.FileName);
@@ -65,7 +65,7 @@ namespace Group_Project.Pages.UploadFile
 
 
 
-                return RedirectToPage("/index");
+                return RedirectToPage("/Index");
         }
     }
 }
