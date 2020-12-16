@@ -20,7 +20,6 @@ namespace Group_Project.Pages.AdminPages
         public string Username;
         public const string SessionKeyName1 = "username";
 
-
         public string FirstName;
         public const string SessionKeyName2 = "fname";
 
@@ -52,9 +51,9 @@ namespace Group_Project.Pages.AdminPages
                 {
                     User Row = new User(); //each record found from the table
                     Row.UserID = reader.GetInt32(0);
-                    Row.FirstName = reader.GetString(1);
-                    Row.Username = reader.GetString(2);
-                    Row.Role = reader.GetString(4); // We dont get the password. The role field is in the 5th position
+                    Row.Username = reader.GetString(1);
+                    Row.FirstName = reader.GetString(4);
+                    Row.Role = reader.GetString(3); 
                     User.Add(Row);
                 }
                 

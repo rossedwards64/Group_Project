@@ -13,7 +13,6 @@ namespace Group_Project.Pages.UserPages
         public string Username;
         public const string SessionKeyName1 = "username";
 
-
         public string FirstName;
         public const string SessionKeyName2 = "fname";
 
