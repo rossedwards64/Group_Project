@@ -2,35 +2,36 @@
 @model Group_Project.Pages.AdminPages.ViewUsersModel
 @{
 }
+<body style="background-color: #232323;">
+    <h1 style="font-family:Century Gothic;">:: View User ::</h1>
+    <br />
+    <h3 style="font-family:Century Gothic;">User : @Model.FirstName</h3>
+    <br />
 
-<h1>:: View User ::</h1>
-<br />
-<h3>User : @Model.FirstName</h3>
-<br />
+    <div style="color:#f2f2f2"
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>User Name</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
 
-<div>
-    <table class="table">
-        <thead class="table-dark">
-            <tr>
-                <th>First Name</th>
-                <th>User Name</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-
-        @for (int i = 0; i < Model.User.Count; i++)
-        {
-            <tr>
-                <td>@Model.User[i].FirstName</td>
-                <td>@Model.User[i].Username</td>
-                <td>@Model.User[i].Role</td>
-            </tr>
-        }
+            @for (int i = 0; i < Model.User.Count; i++)
+            {
+                <tr>
+                    <td>@Model.User[i].FirstName</td>
+                    <td>@Model.User[i].Username</td>
+                    <td>@Model.User[i].Role</td>
+                </tr>
+            }
 
 
-    </table>
-</div>
+        </table>
+    </div>
 
-<div>
-    <a asp-page="/AdminPages/AdminIndex">Back to Main Admin</a>
-</div>
+    <div>
+        <a asp-page="/AdminPages/AdminIndex">Back to Main Admin</a>
+    </div>
+    </body>

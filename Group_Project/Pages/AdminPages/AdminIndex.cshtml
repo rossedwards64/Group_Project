@@ -2,26 +2,26 @@
 @model Group_Project.Pages.AdminPages.AdminIndexModel
 @{
 }
+<body style="background-color: #232323;">
+    <h1 style="        font-family: Century Gothic;color: #f2f2f2">:: Admin Page ::</h1>
+    <br />
 
-<h1>:: Admin Page ::</h1>
-<br />
+    <h2 style="        font-family: Century Gothic;color: #f2f2f2">Welcome @Model.FirstName</h2>
 
-<h2>Welcome @Model.FirstName</h2>
+    <br />
+    <div class="row">
 
-<br />
-<div class="row">
+        <div class="col-sm-2">
+            <p><a asp-page="/Users/Create">Create User</a></p>
+        </div>
 
-    <div class="col-sm-2">
-        <p><a asp-page="/Users/Create">Create User</a></p>
+        <div class="col-sm-2">
+            <p><a asp-page="/AdminPages/ViewUsers">View User</a></p>
+        </div>
+
+        <div class="col-sm-2">
+            <p><a asp-page="/LogoutPage/Logout">Logout</a></p>
+        </div>
+
     </div>
-
-    <div class="col-sm-2">
-        <p><a asp-page="/AdminPages/ViewUsers">View User</a></p>
-    </div>
-
-    <div class="col-sm-2">
-        <p><a asp-page="/LogoutPage/Logout">Logout</a></p>
-    </div>
-
-</div>
-
+    </body>

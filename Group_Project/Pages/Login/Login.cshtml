@@ -2,33 +2,35 @@
 @model Group_Project.Pages.Login.LoginModel
 @{
 }
+<body style="background-color: #232323;">
+    <h1 style="color: #f2f2f2">:: LOGIN PAGE ::</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
 
-<h1>:: Login Page ::</h1>
-<br />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
+                <div style="color: #f2f2f2">
+                <div class="form-group">
+                    <label class="control-label">Login</label>
+                    <input type="text" asp-for="User.Username" class="form-control" />
+                    <span asp-validation-for="User.Username" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label class="control-label">Login</label>
-                <input type="text" asp-for="User.Username" class="form-control" />
-                <span asp-validation-for="User.Username" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="User.Password" class="control-label">Password</label>
+                    <input asp-for="User.Password" type="password" class="form-control" />
+                    <span asp-validation-for="User.Password" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="User.Password" class="control-label">Password</label>
-                <input asp-for="User.Password" type="password" class="form-control" />
-                <span asp-validation-for="User.Password" class="text-danger"></span>
-            </div>
+                <div>
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div></div>
+
+            </form>
 
             <div>
-                <input type="submit" value="Login" class="btn btn-primary"/>
+                <p style="color: red">@Model.Message</p>
             </div>
-
-        </form>
-
-        <div>
-            <p style="color: red">@Model.Message</p>
         </div>
     </div>
-</div>
+    </body>

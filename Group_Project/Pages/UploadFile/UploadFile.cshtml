@@ -3,31 +3,34 @@
 @{
 }
 
+<body style="background-color: #232323;">
+    <h1 style="color:#f2f2f2">Upload Files Page</h1>
+    <br />
 
-<h1>Upload Files Page</h1>
-<br />
+    <div style="color: #f2f2f2">
 
-<div class="col-md-4">
-    <form method="post" enctype="multipart/form-data">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
 
-        <div>
-            <label>Select an image file to upload</label>
-            <input type="file" asp-for="Files" onchange="readURL(this)" accept="image/*" />
-        </div>
-        <br />
+            <div>
+                <label>Select an image file to upload</label>
+                <input type="file" asp-for="Files" onchange="readURL(this)" accept="image/*" />
+            </div>
+            <br />
 
-        <div>
-            <label>@Html.DisplayNameFor(model=> model.FileRec.Username)</label>
-            <input type="text" asp-for="FileRec.Username" class="form-control"/>
-        </div>
-        <br />
-        <div>
-            <input type="submit" value="Upload" class="btn btn-primary" />
-        </div>
-    </form>
-</div>
+            <div>
+                <label>@Html.DisplayNameFor(model => model.FileRec.Username)</label>
+                <input type="text" asp-for="FileRec.Username" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Upload" class="btn btn-primary" />
+            </div>
+        </form>
+    </div></div>
 
-<br />
-<div>
-    <img id="Img" src="" alt="User Picture" style="width: 200px;" />
-</div>
+    <br />
+    <div>
+        <img id="Img" src="" alt="User Picture" style="width: 200px;" />
+    </div>
+    </body>

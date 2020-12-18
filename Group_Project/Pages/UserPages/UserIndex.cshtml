@@ -3,22 +3,22 @@
 @{
 }
 
+<body style="background-color: #232323;">
+    <h1>:: User Main Page ::</h1>
+    <br />
+    <h2> Welcome @Model.FirstName</h2>
 
-<h1>:: User Main Page ::</h1>
-<br />
-<h2> Welcome @Model.FirstName</h2>
+    <br />
+    <div class="row">
 
-<br />
-<div class="row">
+        <div class="col-sm-2">
+            <p><a asp-page="/UserPages/ViewProfile">User Profile Page</a></p>
+        </div>
 
-    <div class="col-sm-2">
-        <p><a asp-page="/UserPages/ViewProfile">User Profile Page</a></p>
+        <div class="col-sm-2">
+            <p><a asp-page="/LogoutPage/Logout">Logout</a></p>
+        </div>
+
     </div>
-
-    <div class="col-sm-2">
-        <p><a asp-page="/LogoutPage/Logout">Logout</a></p>
-    </div>
-
-</div>
-
+    </body>
 
