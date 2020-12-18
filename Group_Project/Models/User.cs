@@ -10,7 +10,6 @@ namespace Group_Project.Models
     {
         public int UserID { get; set;}
 
-       
         [Display(Name ="Username")]
         public string Username { get; set; }
 
@@ -23,7 +22,7 @@ namespace Group_Project.Models
         public string Role { get; set; }
 
         [Display(Name = "FirstName")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
         public int FileID { get; internal set; }
     }
 }

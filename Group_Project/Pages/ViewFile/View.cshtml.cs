@@ -23,7 +23,7 @@ namespace Group_Project.Pages.ViewFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"SELECT * FROM StudentFile";
+                command.CommandText = @"SELECT * FROM UserTable";
 
                 var reader = command.ExecuteReader();
 

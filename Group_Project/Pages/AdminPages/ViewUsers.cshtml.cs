@@ -52,7 +52,7 @@ namespace Group_Project.Pages.AdminPages
                     User Row = new User(); //each record found from the table
                     Row.UserID = reader.GetInt32(0);
                     Row.Username = reader.GetString(1);
-                    Row.FirstName = reader.GetString(4);
+                    Row.FirstName = reader.GetString(2);
                     Row.Role = reader.GetString(3); 
                     User.Add(Row);
                 }

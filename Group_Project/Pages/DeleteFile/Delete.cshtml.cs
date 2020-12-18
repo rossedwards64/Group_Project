@@ -14,9 +14,6 @@ namespace Group_Project.Pages.DeleteFile
 {
     public class DeleteModel : PageModel
     {
-
-      
-
         [BindProperty]
         public User FileRec { get; set; }
 
@@ -28,7 +25,7 @@ namespace Group_Project.Pages.DeleteFile
             _env = env;
         }
 
-        public IActionResult OnGet(int? Id)//we receive this Id from View.cs
+        public IActionResult OnGet(int? UserID)//we receive this Id from View.cs
         {
             DatabaseConnect Dbstring = new DatabaseConnect();
             string DatabaseString = Dbstring.DatabaseString();
@@ -38,8 +35,8 @@ namespace Group_Project.Pages.DeleteFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"SELECT * FROM StudentFile WHERE Id = @Id";
-                command.Parameters.AddWithValue("@Id", Id);
+                command.CommandText = @"SELECT * FROM UserTable WHERE UserID = @UserID";
+                command.Parameters.AddWithValue("@UserID", UserID);
 
                 var reader = command.ExecuteReader();
 
@@ -82,7 +79,7 @@ namespace Group_Project.Pages.DeleteFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"DELETE FROM StudentFile WHERE Id = @Id";
+                command.CommandText = @"DELETE FROM UserTable WHERE Id = @Id";
                 command.Parameters.AddWithValue("@Id", Id);
 
                 command.ExecuteNonQuery();
