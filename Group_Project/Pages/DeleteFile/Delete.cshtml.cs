@@ -43,7 +43,6 @@ namespace Group_Project.Pages.DeleteFile
                 FileRec = new User();
                 while (reader.Read())
                 {
-                    FileRec.FileID = reader.GetInt32(0);
                     FileRec.Username = reader.GetString(1); //to display on the html page
                     FileRec.FileName = reader.GetString(2); //to display on the html page
                 }

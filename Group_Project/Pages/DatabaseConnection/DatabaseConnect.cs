@@ -9,7 +9,7 @@ namespace Group_Project.Pages.DatabaseConnection
     {
         public string DatabaseString ()
         {
-            string DbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\redwa\Documents\Uni Work\Web\C# Module\Group Project\Group_Project\Group_Project\Data\Ross This Database.mdf;Integrated Security=True;Connect Timeout=30";
+            string DbString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\redwa\Documents\Uni Work\Web\C# Module\Group Project\Group_Project\Group_Project\Data\Database.mdf;Integrated Security=True";
             return DbString;
         }
     }

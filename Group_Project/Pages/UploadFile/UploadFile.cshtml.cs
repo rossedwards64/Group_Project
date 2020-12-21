@@ -55,9 +55,10 @@ namespace Group_Project.Pages.UploadFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"INSERT UserTable (Username, FileName) VALUES (@UName, @FName)";
+                command.CommandText = @"INSERT UserTable (Username, FileName, FirstName) VALUES (@UName, @FName, @FirstName)";
                 command.Parameters.AddWithValue("@UName", FileRec.Username);
                 command.Parameters.AddWithValue("@FName", Files.FileName);
+                command.Parameters.Add("@FirstName", System.Data.SqlDbType.VarChar, 20).Value = "Ross";
                 Console.WriteLine("File name : " + FileRec.Username);
                 Console.WriteLine("File name : "+ Files.FileName);
                 command.ExecuteNonQuery();

@@ -16,6 +16,7 @@ namespace Group_Project.Pages.AddUser
         public new User User { get; set; }
 
         public List<string> URole { get; set; } = new List<string> { "User", "Admin" };
+
         public void OnGet()
         {
         }
@@ -36,12 +37,13 @@ namespace Group_Project.Pages.AddUser
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"INSERT INTO UserTable (FirstName, Username, Password, Role) VALUES (@FName, @UName, @Pwd, @Role)";
+                command.CommandText = @"INSERT INTO UserTable (FirstName, Username, Password, Role, FileName) VALUES (@FName, @UName, @Pwd, @URole, @FileName)";
 
                 command.Parameters.AddWithValue("@FName", User.FirstName);
                 command.Parameters.AddWithValue("@UName", User.Username);
                 command.Parameters.AddWithValue("@Pwd", User.Password);
-                command.Parameters.AddWithValue("@Role", User.Role);
+                command.Parameters.AddWithValue("@URole", User.Role);
+                command.Parameters.Add("@FileName", System.Data.SqlDbType.VarChar, 50).Value = "Placeholder";
                 command.ExecuteNonQuery();
             }
 

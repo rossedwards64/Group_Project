@@ -32,6 +32,9 @@ namespace Group_Project.Pages.ViewFile
                 while (reader.Read())
                 {
                     User rec = new User();
+                    Console.WriteLine(rec.UserID);
+                    Console.WriteLine(rec.Username);
+                    Console.WriteLine(rec.FileName);
                     rec.UserID = reader.GetInt32(0); // we need this to send the Id to Delete page for another enquiry
                     rec.Username = reader.GetString(1);
                     rec.FileName = reader.GetString(2);

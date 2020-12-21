@@ -17,12 +17,14 @@ namespace Group_Project.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        public string FileName { get; set; }
-
+        [Display(Name ="Role")]
         public string Role { get; set; }
 
-        [Display(Name = "FirstName")]
-        public string? FirstName { get; set; }
-        public int FileID { get; internal set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+#nullable enable
+        [Display(Name = "File Name")]
+        public string? FileName { get; set; }
     }
 }
