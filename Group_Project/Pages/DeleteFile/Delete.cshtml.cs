@@ -35,7 +35,7 @@ namespace Group_Project.Pages.DeleteFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"SELECT * FROM UserTable WHERE UserID = @UserID";
+                command.CommandText = @"SELECT UserID FROM UserTable WHERE UserID = @UserID";
                 command.Parameters.AddWithValue("@UserID", UserID);
 
                 var reader = command.ExecuteReader();
@@ -65,10 +65,10 @@ namespace Group_Project.Pages.DeleteFile
 
 
 
-        public void deletePicture(int Id, string FileName)
+        public void deletePicture(int UserID, string FileName)
         {
-            Console.WriteLine("Record Id : "+Id);
-            Console.WriteLine("File Name : "+FileName);
+            Console.WriteLine("Record Id : " + UserID);
+            Console.WriteLine("File Name : " + FileName);
 
             DatabaseConnect dbstring = new DatabaseConnect();
             string DatabaseString = dbstring.DatabaseString();
@@ -78,8 +78,8 @@ namespace Group_Project.Pages.DeleteFile
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = @"DELETE FROM UserTable WHERE Id = @Id";
-                command.Parameters.AddWithValue("@Id", Id);
+                command.CommandText = @"DELETE FROM UserTable WHERE UserID = @UserID";
+                command.Parameters.AddWithValue("@UserID", UserID);
 
                 command.ExecuteNonQuery();
             }
